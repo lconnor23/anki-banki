@@ -20,7 +20,7 @@ require("dotenv").config({ path: "./config/.env" });
 
 
 // Connect to DB
-connectDB()
+// connectDB()
 
 // Middleware
   //Using EJS for views
@@ -31,7 +31,10 @@ app.set(express.static("public"))
 app.use(express.urlencoded({extended: true}) )
 
 // Routes
-
+//temporary route for views production
+app.get('/', (req, res) => {
+  res.render('main.ejs')
+})
 // start Server
 // at port 8000 listen for input from user (we use morgan to log these req into console)
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
